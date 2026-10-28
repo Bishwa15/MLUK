@@ -1,0 +1,24 @@
+wfs_url = "https://maps.brandenburg.de/services/wfs/wsg"
+layer_name = "wasser_wsg:Wasserschutzgebiete"
+state_code = "BB"
+target_crs = "EPSG:25832"
+output_format = "GEOJSON"
+timeout_seconds = 30
+page_size = 500
+source_dataset_metadata_date = "2026-10-09"
+report_directory = "run_reports"
+
+# Source field names verified against DescribeFeatureType and sample WFS data.
+# Empty mappings are intentionally represented as null/unknown in staging.
+[fields]
+source_id = "GmlID"
+official_zone_id = "ID_NR"
+wsg_id = "WSG_ID"
+zone_code = "CODE"
+zone_class = "SCHUTZZONE"
+restriction_category = ""
+extraction_rate = ""
+legal_effective_date = "WSG_VOM"
+legal_reference = "VO_TEXT"
+publication_reference = "FUNDSTELLE"
+source_updated_at = ""

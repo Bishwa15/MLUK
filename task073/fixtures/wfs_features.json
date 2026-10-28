@@ -1,0 +1,30 @@
+{
+  "type": "FeatureCollection",
+  "crs": {"type": "name", "properties": {"name": "EPSG:25833"}},
+  "numberMatched": 2,
+  "numberReturned": 2,
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {"type": "MultiPolygon", "coordinates": [[[[381958.8, 5806006.5], [382058.8, 5806006.5], [382058.8, 5806106.5], [381958.8, 5806106.5], [381958.8, 5806006.5]]]]},
+      "properties": {
+        "GmlID": "Wasserschutzgebiete.59166", "OBJECTID": 59166, "FLAECHE": 197958,
+        "G_ID": 26, "ID_NR": "7385200011", "CODE": 20, "SCHUTZZONE": "Zone II",
+        "KLARNAME": "Teltow", "WSG_ID": "7385", "LANDKREIS": "Potsdam-Mittelmark",
+        "FUNDSTELLE": "GVBl.II/08, [Nr. 33], S.498", "WSG_VOM": "02.12.2008",
+        "VO_TEXT": "https://bravors.brandenburg.de/de/verordnungen-212365"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {"type": "Polygon", "coordinates": [[[382200, 5806006], [382250, 5806006], [382250, 5806056], [382200, 5806056], [382200, 5806006]]]},
+      "properties": {
+        "GmlID": "Wasserschutzgebiete.59167", "OBJECTID": 59167, "FLAECHE": 312,
+        "G_ID": 27, "ID_NR": "7385100101", "CODE": 10, "SCHUTZZONE": "Zone I",
+        "KLARNAME": "Teltow", "WSG_ID": "7385", "LANDKREIS": "Potsdam-Mittelmark",
+        "FUNDSTELLE": "GVBl.II/08, [Nr. 33], S.498", "WSG_VOM": "02.12.2008",
+        "VO_TEXT": "https://bravors.brandenburg.de/de/verordnungen-212365"
+      }
+    }
+  ]
+}

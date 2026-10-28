@@ -484,3 +484,7 @@ The long-term vision is to build an AI-powered decision support platform for dat
 By combining geospatial intelligence, power infrastructure, renewable energy, land valuation, market intelligence, and conversational AI, the platform enables users to evaluate and compare potential data center locations through natural language interaction.
 
 The project is designed to evolve into a comprehensive executive decision-support system that assists planners, investors, and infrastructure specialists in identifying optimal data center locations.
+
+## IRIS Engineering Assignment — Task 073
+
+The Brandenburg water-protection WFS ingestion module is in [`task073/`](task073/README.md). It includes source inspection, fixture tests, PostGIS staging upserts, Docker configuration, and a quality report. The live official WFS layer differs from the layer named in the assignment PDF; see the task README for the verified mapping and documented discrepancy.
