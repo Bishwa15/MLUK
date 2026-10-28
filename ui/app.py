@@ -16,8 +16,6 @@ from components.sidebar import render_sidebar
 from components.header import render_header
 from components.kpi_section import render_kpis
 
-# from components.ai_panel import render_ai_panel
-from components.ai.ai_panel import render_ai_panel
 from components.ranking_table import render_ranking_table
 from components.analytics_panel import render_analytics_panel
 from components.market_intelligence import render_market_intelligence
@@ -106,7 +104,7 @@ render_sidebar()
 render_header()
 render_kpis(summary)
 # render_map_legend()
-map_col, ai_col = st.columns([7,5], gap='medium')
+map_col = st.container()
 
 with map_col:
     # st.write("Transformer count:", len(transformers))
@@ -157,9 +155,6 @@ with map_col:
                 st.session_state.selected_facility_id = facility["id"]
                 st.rerun()
 
-with ai_col:
-    with st.container(height=500):
-        render_ai_panel()
 
 site_intelligence = None
 if st.session_state.selected_facility_id:

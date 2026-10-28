@@ -7,18 +7,7 @@ from app.extractors.mock_extractor import MockExtractor
 
 
 class EntityExtractor:
-    """
-    Extract entities from normalized news.
-
-    Current implementation:
-        MockExtractor
-
-    Future implementation:
-        OpenAIExtractor
-
-    DataPaths controls the workspace so each pipeline
-    execution remains isolated.
-    """
+    """Extract entities from normalized news using local rules."""
 
     def __init__(
         self,

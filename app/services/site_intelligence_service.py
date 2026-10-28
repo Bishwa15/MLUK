@@ -83,7 +83,6 @@ class SiteIntelligenceService:
         This allows future support for:
         - User-selected map locations
         - Candidate sites
-        - AI recommendations
         """
 
         nearest_substation = (

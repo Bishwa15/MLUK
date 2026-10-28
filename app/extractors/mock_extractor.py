@@ -2,16 +2,7 @@ import re
 
 
 class MockExtractor:
-    """
-    Mock AI extractor.
-
-    Simulates an LLM by extracting
-    simple business entities using
-    keyword matching.
-
-    Later this will be replaced by
-    OpenAIExtractor.
-    """
+    """Extract basic news signals using deterministic keyword rules."""
 
     COMPANIES = [
         "Microsoft",

@@ -4,7 +4,6 @@ Intelligence Search Service
 Responsible for querying the NRW Data Center
 Business Intelligence database.
 
-This service NEVER calls OpenAI.
 
 Author:
 NRW BI Platform

@@ -5,7 +5,7 @@ Represents a raw news article collected from
 RSS feeds and external data sources.
 
 This table stores the original article before
-entity matching and AI enrichment.
+entity matching and rule-based signal extraction.
 
 Author:
 NRW BI Platform

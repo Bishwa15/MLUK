@@ -72,7 +72,6 @@ def render_sidebar():
                 "Power Grid",
                 "Land Values",
                 "News Intelligence",
-                "AI Assistant",
                 "Settings",
             ],
             icons=[
@@ -81,7 +80,6 @@ def render_sidebar():
                 "lightning-charge",
                 "geo-alt",
                 "newspaper",
-                "robot",
                 "gear",
             ],
             default_index=0,

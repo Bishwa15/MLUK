@@ -4,7 +4,7 @@ News Match Model
 Represents the relationship between a news
 article and one or more facilities.
 
-Stores the AI/entity matching results.
+Stores the entity matching results.
 """
 
 from __future__ import annotations
