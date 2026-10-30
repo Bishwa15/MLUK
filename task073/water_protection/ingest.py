@@ -266,7 +266,7 @@ UPSERT_SQL = """INSERT INTO iris_staging.water_protection_zones (
  restriction_category,extraction_rate,legal_effective_date,legal_reference,
  publication_reference,source_updated_at,source_dataset_metadata_date,source_attributes,source_crs,data_origin,ingested_at,geom
 ) VALUES (
- %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s::jsonb,%s,%s,%s,%s,ST_Multi(ST_GeomFromWKB(%s,25832))
+ %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s::jsonb,%s,%s,%s,ST_Multi(ST_GeomFromWKB(%s,25832))
 )
 ON CONFLICT (source_zone_id,state_code) DO UPDATE SET
  official_zone_id=EXCLUDED.official_zone_id,wsg_id=EXCLUDED.wsg_id,

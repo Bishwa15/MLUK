@@ -6,7 +6,7 @@ import pytest
 from shapely.geometry import box, mapping
 
 from water_protection.cli import _validate_database_url, _write_report
-from water_protection.ingest import FieldMap, IngestionError, IngestionReport, fetch_features, inspect_capabilities, load_postgis, normalize_features, parcel_relation
+from water_protection.ingest import FieldMap, IngestionError, IngestionReport, fetch_features, inspect_capabilities, load_postgis, normalize_features, parcel_relation, UPSERT_SQL
 
 FIXTURE = json.loads((Path(__file__).parents[1] / "fixtures" / "wfs_features.json").read_text(encoding="utf-8"))
 FIELDS = FieldMap(
@@ -114,7 +114,7 @@ def test_capabilities_discovery_reads_advertised_layer_and_default_crs():
 
 
 def test_repeat_load_uses_composite_upsert_key_and_only_staging():
-    gdf, _ = normalize_features(FIXTURE["features"][:1], "EPSG:25833", FIELDS, "BB")
+    gdf, _ = normalize_features(FIXTURE["features"][:1], "EPSG:25833", FIELDS, "BB", source_dataset_metadata_date="2026-10-09")
 
     class Cursor:
         def __init__(self): self.sql = []; self.rows = []
@@ -137,6 +137,10 @@ def test_repeat_load_uses_composite_upsert_key_and_only_staging():
     assert "ON CONFLICT (source_zone_id,state_code) DO UPDATE" in statements
     assert {(row[0], row[1]) for row in connection.cur.rows} == {("Wasserschutzgebiete.59166", "BB")}
     assert all(len(row) == 18 for row in connection.cur.rows)
+    assert "source_updated_at,source_dataset_metadata_date,source_attributes,source_crs" in UPSERT_SQL
+    assert "%s,%s::jsonb,%s,%s,%s" in UPSERT_SQL
+    assert connection.cur.rows[0][12] == "2026-10-09"
+    assert json.loads(connection.cur.rows[0][13]) == FIXTURE["features"][0]["properties"]
     assert connection.cur.sql[-1].count("%s") == 18
     assert connection.commits == 2
 

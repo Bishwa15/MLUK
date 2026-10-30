@@ -97,7 +97,8 @@ GROUP BY state_code, source_crs, data_origin;
 
 ## Limitations
 
-- The live WFS has been checked for capabilities, schema, CRS, GeoJSON format, and a small set of features. A full dataset load into PostGIS was not run in this workspace because no staging database credentials were provided.
+- Live ingestion was completed against the verified Brandenburg WFS using `GEOJSON`: 2,027 features fetched and accepted, 0 rejected, and 2,027 loaded into the local staging database. A repeat run left 2,027 rows with 2,027 distinct `(source_zone_id, state_code)` keys; geometry validation found 0 invalid geometries. The stored geometries use EPSG:25832. The initial `application/json` request was rejected by the service; the configuration was corrected to `GEOJSON` before the successful run.
+- A GeoJSON export of the loaded records was opened in geojson.io. The polygon shapes rendered and feature properties were visible. This was a manual visual check; the project does not include a map UI.
 - The assignment's named endpoint/layer do not match the current official Geoportal service. The implementation uses the official reachable WFS and records the discrepancy; a reviewer should confirm that this is the expected service mapping.
 - Restrictions applicable to a parcel depend on the individual water-protection order and other laws. `VO_TEXT` links to legal orders, but restriction categories and extraction rates are not present as structured WFS attributes and are intentionally not inferred.
 - The fixture geometries are representative test shapes in EPSG:25833; source-like attributes follow the verified schema. They are not presented as copies of the live polygons.
